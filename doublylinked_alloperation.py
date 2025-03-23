@@ -38,9 +38,9 @@ class doubly:
     def display(self):
         temp=self.head
         while temp!=None:
-            print(temp.data,end=" ")
+            print(temp.data,end="<->")
             temp=temp.next
-        print("")
+        print("None")
     
     def insertatposition(self,data,pos):
         
@@ -69,6 +69,9 @@ class doubly:
         temp=self.head
         for i in range(pos-2):
             temp=temp.next
+        if(temp.next.next==None):
+            temp.next=None
+            return
         temp.next.next.prev=temp
         temp.next=temp.next.next
         
@@ -88,5 +91,5 @@ s.insertatposition(99,3)
 s.display()
 s.insertatposition(100,6)
 s.display()
-s.deleteatposition(4)
+s.deleteatposition(6)
 s.display()
